@@ -11,7 +11,8 @@ export async function createProduct(productData: Partial<IProduct>) {
     if (
       !productData.name ||
       !productData.description ||
-      !productData.price ||
+      productData.price === undefined ||
+      +productData.price === null ||
       !productData.category ||
       !productData.brand ||
       !productData.image

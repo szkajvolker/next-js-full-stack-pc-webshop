@@ -91,14 +91,14 @@ export async function DELETE(
 ) {
   try {
     const { slug } = await params;
-    const result = await deleteProduct(slug);
-    if (!result) {
+    const existingProduct = await getProductBySlug(slug);
+    if (!existingProduct) {
       return Response.json(
         {
           success: false,
           error: "Product not found",
         },
-        { status: 404 }
+        { status: 400 }
       );
     }
 

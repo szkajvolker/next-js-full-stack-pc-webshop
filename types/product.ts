@@ -4,7 +4,7 @@ export enum Currency {
   HUF = "HUF",
   EUR = "EUR",
   USD = "USD",
-  GPB = "GBP",
+  GBP = "GBP",
 }
 
 export interface IProduct extends Document {
