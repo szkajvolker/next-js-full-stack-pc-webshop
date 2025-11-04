@@ -6,9 +6,28 @@ import { IProduct } from "@/types/product";
 import connectToDatabase from "../database";
 import Product from "@/database/models/product.model";
 
-//Create Product
 export async function createProduct(productData: Partial<IProduct>) {
   try {
+    if (
+      !productData.name ||
+      !productData.description ||
+      !productData.price ||
+      !productData.category ||
+      !productData.brand ||
+      !productData.image
+    ) {
+      throw new Error("Missing required fields");
+    }
+
+    if (typeof productData.price !== "number" || productData.price < 0) {
+      throw new Error("Price must be a non-negative number!");
+    }
+    if (
+      productData.stock !== undefined &&
+      (typeof productData.stock !== "number" || productData.stock < 0)
+    ) {
+      throw new Error("Stock must be a non-negative number");
+    }
     await connectToDatabase();
 
     if (!productData.slug && productData.name) {
@@ -23,7 +42,6 @@ export async function createProduct(productData: Partial<IProduct>) {
   }
 }
 
-//Get All Products
 export async function getAllProducts() {
   try {
     await connectToDatabase();
@@ -35,7 +53,6 @@ export async function getAllProducts() {
   }
 }
 
-//Get Product by
 export async function getProductBySlug(slug: string) {
   try {
     await connectToDatabase();
@@ -47,12 +64,27 @@ export async function getProductBySlug(slug: string) {
   }
 }
 
-//Update Product
 export async function updateProduct(
   id: string,
   productData: Partial<IProduct>
 ) {
   try {
+    if ("slug" in productData) {
+      delete productData.slug;
+    }
+
+    if (
+      productData.price !== undefined &&
+      (typeof productData.price !== "number" || productData.price < 0)
+    ) {
+      throw new Error("Price must be a non-negative number!");
+    }
+    if (
+      productData.stock !== undefined &&
+      (typeof productData.stock !== "number" || productData.stock < 0)
+    ) {
+      throw new Error("Stock must be a non-negative number!");
+    }
     await connectToDatabase();
     const product = await Product.findByIdAndUpdate(id, productData, {
       new: true,
@@ -64,11 +96,13 @@ export async function updateProduct(
   }
 }
 
-//Delete Product
 export async function deleteProduct(id: string) {
   try {
     await connectToDatabase();
-    await Product.findByIdAndDelete(id);
+    const result = await Product.findByIdAndDelete(id);
+    if (!result) {
+      throw new Error("Product not found");
+    }
     return { success: true };
   } catch (error) {
     console.error("Error delete product", error);

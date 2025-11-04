@@ -1,18 +1,33 @@
-import { IProduct } from "@/types/product";
+import { Currency, IProduct } from "@/types/product";
 import { model, models, Schema } from "mongoose";
-
-//TODO later add more details,validations
 
 const productSchema = new Schema<IProduct>(
   {
-    name: { type: String, required: true },
-    slug: { type: String, required: true, unique: true },
-    description: { type: String, required: true },
-    price: { type: Number, required: true },
-    category: { type: String, required: true },
-    brand: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+      minlength: 1,
+      maxlength: 200,
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+    },
+    description: { type: String, required: true, trim: true },
+    price: { type: Number, required: true, min: 0 },
+    currency: {
+      type: String,
+      enum: Object.values(Currency),
+      default: Currency.EUR,
+    },
+    category: { type: String, required: true, trim: true },
+    brand: { type: String, required: true, trim: true },
     image: { type: String, required: true },
-    stock: { type: Number, default: 0 },
+    stock: { type: Number, default: 0, min: 0 },
   },
   {
     timestamps: true,
