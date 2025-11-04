@@ -23,7 +23,8 @@ export async function POST(request: NextRequest) {
     if (
       !productData.name ||
       !productData.description ||
-      !productData.price ||
+      productData.price === undefined ||
+      productData.price === null ||
       !productData.category ||
       !productData.brand ||
       !productData.image

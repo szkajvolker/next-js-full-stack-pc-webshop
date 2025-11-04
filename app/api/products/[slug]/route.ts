@@ -43,7 +43,7 @@ export async function PUT(
     ) {
       return Response.json(
         { success: false, error: "Invalid price" },
-        { status: 400 }
+        { status: 404 }
       );
     }
     if (
@@ -91,8 +91,8 @@ export async function DELETE(
 ) {
   try {
     const { slug } = await params;
-    const result = await deleteProduct(slug);
-    if (!result) {
+    const existingProduct = await getProductBySlug(slug);
+    if (!existingProduct) {
       return Response.json(
         {
           success: false,
@@ -101,6 +101,8 @@ export async function DELETE(
         { status: 404 }
       );
     }
+
+    await deleteProduct(existingProduct._id);
 
     return Response.json({
       success: true,

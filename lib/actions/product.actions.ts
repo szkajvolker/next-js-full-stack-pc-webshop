@@ -11,14 +11,13 @@ export async function createProduct(productData: Partial<IProduct>) {
     if (
       !productData.name ||
       !productData.description ||
-      !productData.price ||
+      productData.price === undefined ||
       !productData.category ||
       !productData.brand ||
       !productData.image
     ) {
       throw new Error("Missing required fields");
     }
-
     if (typeof productData.price !== "number" || productData.price < 0) {
       throw new Error("Price must be a non-negative number!");
     }
@@ -89,13 +88,15 @@ export async function updateProduct(
     const product = await Product.findByIdAndUpdate(id, productData, {
       new: true,
     });
+    if (!product) {
+      throw new Error("Product not found");
+    }
     return JSON.parse(JSON.stringify(product));
   } catch (error) {
     console.error("Error updating product", error);
     throw error;
   }
 }
-
 export async function deleteProduct(id: string) {
   try {
     await connectToDatabase();
