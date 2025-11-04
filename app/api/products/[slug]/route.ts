@@ -43,7 +43,7 @@ export async function PUT(
     ) {
       return Response.json(
         { success: false, error: "Invalid price" },
-        { status: 400 }
+        { status: 404 }
       );
     }
     if (
@@ -98,9 +98,11 @@ export async function DELETE(
           success: false,
           error: "Product not found",
         },
-        { status: 400 }
+        { status: 404 }
       );
     }
+
+    await deleteProduct(existingProduct._id);
 
     return Response.json({
       success: true,
