@@ -5,7 +5,6 @@ import {
 } from "@/lib/actions/product.actions";
 import { NextRequest } from "next/server";
 
-//GET /api/products/[slug] - Get product by slug
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
@@ -31,7 +30,6 @@ export async function GET(
   }
 }
 
-//PUT /api/products/[slug] - Update product
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
@@ -39,7 +37,28 @@ export async function PUT(
   try {
     const productData = await request.json();
 
-    //First get the product to get its ID
+    if (
+      productData.price !== undefined &&
+      (typeof productData.price !== "number" || productData.price < 0)
+    ) {
+      return Response.json(
+        { success: false, error: "Invalid price" },
+        { status: 400 }
+      );
+    }
+    if (
+      productData.stock !== undefined &&
+      (typeof productData.stock !== "number" || productData.stock < 0)
+    ) {
+      return Response.json(
+        {
+          success: false,
+          error: "Invalid stock value",
+        },
+        { status: 400 }
+      );
+    }
+
     const { slug } = await params;
     const existingProduct = await getProductBySlug(slug);
     if (!existingProduct) {
@@ -66,16 +85,14 @@ export async function PUT(
   }
 }
 
-//DELETE /api/products/[slug] -Delete product
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    //First get the product to get its ID
     const { slug } = await params;
-    const existingProduct = await getProductBySlug(slug);
-    if (!existingProduct) {
+    const result = await deleteProduct(slug);
+    if (!result) {
       return Response.json(
         {
           success: false,
@@ -85,7 +102,6 @@ export async function DELETE(
       );
     }
 
-    await deleteProduct(existingProduct._id);
     return Response.json({
       success: true,
       message: "Product deleted successfully",
