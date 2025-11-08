@@ -41,7 +41,7 @@ export async function createProduct(productData: Partial<IProduct>) {
   }
 }
 
-export async function getAllProducts() {
+export async function getAllProducts(): Promise<IProduct[]> {
   try {
     await connectToDatabase();
     const products = await Product.find({}).sort({ createdAt: -1 });
