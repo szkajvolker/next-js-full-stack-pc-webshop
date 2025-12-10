@@ -16,6 +16,7 @@ export interface IProduct extends Document {
   category: string;
   brand: string;
   image: string;
+  showcaseImages: string[];
   stock: number;
   createdAt: Date;
   updatedAt: Date;
