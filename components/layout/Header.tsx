@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/components/assets/images/pcslogo.png";
 import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
+import DarkModeToggle from "../ui/DarkModeToggle";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
       <nav className="flex items-center w-full sm:px-10 px-5 py-4">
         <div className="flex">
           <Link href="/" className="flex flex-row items-center gap-2">
-            <Image src={logo} alt="logo" width={32} height={32}></Image>
+            <Image src={logo} alt="logo" width={32} height={32} />
             <p className="text-white font-bold">PC Shop</p>
           </Link>
         </div>
@@ -33,6 +34,7 @@ const Header = () => {
           </ul>
         </div>
       </nav>
+      <DarkModeToggle />
       <div className="flex flex-row gap-5 p-5 h-full bg-[#5200a3] items-center">
         <div className="pr-2">
           <IoCartOutline
