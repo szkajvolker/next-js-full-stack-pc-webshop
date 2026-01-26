@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_DB_URI;
+const MONGO_DB_URI = process.env.MONGO_DB_URI;
 
-if (!MONGODB_URI) {
+if (!MONGO_DB_URI) {
   throw new Error("Please define MONGO_DB_URI in .env file!");
 }
 
@@ -17,7 +17,7 @@ async function connectToDatabase(): Promise<typeof mongoose> {
     return cached.conn;
   }
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI!);
+    cached.promise = mongoose.connect(MONGO_DB_URI!);
   }
   cached.conn = await cached.promise;
   return cached.conn;
