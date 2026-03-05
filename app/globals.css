@@ -1,10 +1,25 @@
 @import "tailwindcss";
 
-body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  background-color: white;
+@theme {
+  --color-n-1: #6600cc;
+  --color-n-2: #320065;
+  --color-n-3: #fafaf9;
+  --color-n-4: #ffffff;
 }
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  background-color: #fafaf9;
+}
+.dark body {
+  background-color: #18181b;
+}
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -22,4 +37,16 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

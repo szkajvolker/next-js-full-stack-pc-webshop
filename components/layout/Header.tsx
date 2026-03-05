@@ -1,16 +1,20 @@
 import Image from "next/image";
-import logo from "@/components/assets/images/pcslogo.png";
 import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
 import DarkModeToggle from "../ui/DarkModeToggle";
 
 const Header = () => {
   return (
-    <header className="flex  bg-[#6600cc] border-b-4 h-20 items-center w-full justify-between  backdrop-filter backdrop-blur-xl border-green-500 sticky top-0 z-50">
-      <nav className="flex items-center w-full sm:px-10 px-5 py-4">
-        <div className="flex">
-          <Link href="/" className="flex flex-row items-center gap-2">
-            <Image src={logo} alt="logo" width={32} height={32} />
+    <header className="flex bg-n-1 border-b-4 h-20 items-center w-full justify-between  backdrop-filter backdrop-blur-xl border-green-500 sticky top-0 z-50">
+      <nav className="flex items-center justify w-full px-4">
+        <div className="flex flex-row">
+          <Link href="/" className="flex flex-row items-center gap-4">
+            <Image
+              src="/assets/images/pcslogo.png"
+              alt="logo"
+              width={32}
+              height={32}
+            />
             <p className="text-white font-bold">PC Shop</p>
           </Link>
         </div>
@@ -33,8 +37,10 @@ const Header = () => {
             </Link>
           </ul>
         </div>
+        <div>
+          <DarkModeToggle />
+        </div>
       </nav>
-      <DarkModeToggle />
       <div className="flex flex-row gap-5 p-5 h-full bg-[#5200a3] items-center">
         <div className="pr-2">
           <IoCartOutline

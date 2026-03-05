@@ -1,8 +1,6 @@
 "use client";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
-import placeholder from "@/components/assets/images/placeholder.png";
-import motherboard1 from "@/components/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png";
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 import { useState } from "react";
@@ -21,8 +19,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div
       className={`flex flex-col  ${
-        isFeatured === true ? "border-2 border-[#6600cc] " : ""
-      } p-2 bg-white w-[300px] hover:-translate-y-2 hover:shadow-md transition-all duration-200`}
+        isFeatured === true ? "border-2 border-n-1 " : ""
+      } p-2 bg-n-4  w-[200px] hover:-translate-y-2 hover:shadow-md hover:shadow-slate-300 transition-all duration-200`}
     >
       <Link href={`/products/${product.slug}`}>
         <div className="flex justify-end">
@@ -35,9 +33,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </p>
 
           <Image
-            src={motherboard1}
+            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
             alt={product.name}
-            sizes="32"
+            width={300}
+            height={300}
             className="rounded-lg"
           />
         </div>
@@ -51,7 +50,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="flex justify-between items-center">
           <div>
             <p className="text-lg font-bold">
-              {product.price.toLocaleString()} {product.currency}
+              {product.price.toString()} {product.currency}
             </p>
           </div>
         </div>
@@ -72,14 +71,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
             }}
             max={product.stock}
             disabled={product.stock === 0}
-            className="border border-gray-400 rounded-lg w-16 h-10 text-center"
+            className="border border-gray-400 rounded-lg w-10 h-full p-2 text-center"
           />
           <button
             disabled={product.stock === 0}
-            className="bg-[#4dc034] px-10 rounded-lg cursor-pointer hover:bg-green-500"
+            className="bg-[#4dc034] px-5 rounded-lg cursor-pointer hover:bg-green-500"
             onClick={() => addToCart(product, quantity)}
           >
-            <IoCartOutline size={24} color="white" />
+            <IoCartOutline size={20} color="white" />
           </button>
         </div>
       </div>
