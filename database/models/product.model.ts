@@ -22,7 +22,7 @@ const productSchema = new Schema<IProduct>(
     currency: {
       type: String,
       enum: Object.values(Currency),
-      default: Currency.EUR,
+      default: Currency.HUF,
     },
     category: { type: String, required: true, trim: true },
     brand: { type: String, required: true, trim: true },
@@ -31,7 +31,7 @@ const productSchema = new Schema<IProduct>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Product = models.Product || model<IProduct>("Product", productSchema);
