@@ -5,7 +5,7 @@ import DarkModeToggle from "../ui/DarkModeToggle";
 
 const Header = () => {
   return (
-    <header className="flex bg-n-1 border-b-4 h-20 items-center w-full justify-between  backdrop-filter backdrop-blur-xl border-green-500 sticky top-0 z-50">
+    <header className="flex bg-n-1 border-b-4 h-20 items-center w-full justify-between  backdrop-filter backdrop-blur-xl mb-5 border-green-500 sticky top-0 z-50">
       <nav className="flex items-center justify w-full px-4">
         <div className="flex flex-row">
           <Link href="/" className="flex flex-row items-center gap-4">

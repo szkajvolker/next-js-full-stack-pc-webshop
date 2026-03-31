@@ -18,6 +18,7 @@ export interface IProduct extends Document {
   image: string;
   showcaseImages: string[];
   stock: number;
+  isFeatured?: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -28,8 +28,10 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
       <div className="flex flex-row">
         <div className="flex flex-col border-r border-[#e5e5e5] pr-5 items-center">
           <Image
-            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
-            alt="image"
+            src={product.image || "/assets/images/placeholder.png"}
+            alt={
+              product.name ? `${product.name} - Product Image` : "Product Image"
+            }
             width={500}
             height={500}
           />
@@ -132,8 +134,12 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
         </div>
         <div className="flex flex-row">
           <Image
-            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
-            alt="image"
+            src={product.image || "/assets/images/placeholder.png"}
+            alt={
+              product.name
+                ? `${product.name} - Product Detail Image`
+                : "Product Detail Image"
+            }
             width={400}
             height={400}
           />
