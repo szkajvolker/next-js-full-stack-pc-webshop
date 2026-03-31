@@ -16,6 +16,7 @@ A modern, full-stack PC webshop built with Next.js, React, MongoDB, and Tailwind
 
 - Next.js 16
 - React 19
+- TypeScript
 - MongoDB & Mongoose
 - Tailwind CSS
 - Material UI (MUI)
@@ -33,6 +34,8 @@ A modern, full-stack PC webshop built with Next.js, React, MongoDB, and Tailwind
    npm run dev
    ```
 3. **MongoDB setup:**
+   - Create a `.env.local` file in the root directory
+   - Add your MongoDB connection string:
    - Ensure MongoDB is running locally or set up your connection string in environment variables.
 
 ## Folder Structure

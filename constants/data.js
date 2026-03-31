@@ -48,7 +48,7 @@ export const BROWSEITEMS = [
     itemname: "SSD",
     slug: "ssd",
     image:
-      "https://res.cloudinary.com/dzb0ql5fb/image/upload/v1772793394/5cd286f1122394055_kznqxp.webp",
+      "https://res.cloudinary.com/dzb0ql5fb/image/upload/v1772793400/5cd281282e6f52-memoria_jtogjx.webp",
   },
   {
     itemname: "HDD",

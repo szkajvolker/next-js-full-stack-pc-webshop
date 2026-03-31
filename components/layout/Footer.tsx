@@ -5,7 +5,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="flex flex-col bg-n-3">
-        <div className="flex flex-row justify-between lg:px-30 bg-n-1">
+        <div className="flex flex-row justify-between lg:px-30 px-5 bg-n-1">
+          {" "}
           <div className="flex flex-row m-10 gap-3 items-center">
             <Image
               src="/assets/images/pcslogo.png"
@@ -35,7 +36,7 @@ const Footer = () => {
         <div className="flex flex-row justify-between lg:px-30 px-5">
           <div className="flex flex-row lg:m-10 m-2">
             <p className="text-gray-400 text-xs border-r-2 px-10">
-              © {new Date().getFullYear()}Web Shop All rights Reserved!
+              © {new Date().getFullYear()} Web Shop All rights Reserved!{" "}
             </p>
             <p className="text-gray-400 text-xs lg:px-10 px-2">
               Legal Notice. Terms and Conditions.

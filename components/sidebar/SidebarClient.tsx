@@ -19,7 +19,7 @@ const SidebarClient: React.FC<SidebarClientProps> = ({ products, slug }) => {
     Math.max(...products.map((p) => p.price)),
   ]);
 
-  const filtered = products
+  const filtered = [...products]
     .sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured))
     .filter((product) => product.category?.toLowerCase() === slug)
     .filter(

@@ -74,7 +74,7 @@ const ManufacturersFilter: React.FC<ManufacturerFilterProps> = ({
           )}
           <div className="mt-2 mx-2">
             <a
-              className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline transition-transform duration-150 cursor-pointer"
+              className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-150 cursor-pointer"
               onClick={handleShowAll}
             >
               {!showAll ? "show all" : "show less"}
