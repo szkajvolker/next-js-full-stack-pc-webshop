@@ -8,7 +8,8 @@ interface MongooseCache {
 const MONGO_DB_URI = process.env.MONGO_DB_URI;
 
 if (!MONGO_DB_URI) {
-  throw new Error("Please define MONGO_DB_URI in .env file!");
+  console.log("Available env vars:", Object.keys(process.env));
+  throw new Error("Please define MONGO_DB_URI environment variable!");
 }
 
 const globalWithMongoose = global as typeof globalThis & {
