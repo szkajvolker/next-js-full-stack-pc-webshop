@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ManufacturersFilter from "./sidebarcomponents/ManufacturersFilter";
 import PriceFilter from "./sidebarcomponents/PriceFilter";
-import { IProduct } from "@/types/product";
 
 type SidebarProps = {
   selectedManufacturers: string[];

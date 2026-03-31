@@ -13,7 +13,6 @@ const SidebarClient: React.FC<SidebarClientProps> = ({ products, slug }) => {
   const [selectedManufacturers, setSelectedManufacturers] = useState<string[]>(
     [],
   );
-  console.log(selectedManufacturers);
 
   const [price, setPrice] = useState<[number, number]>([
     Math.min(...products.map((p) => p.price)),
@@ -21,6 +20,7 @@ const SidebarClient: React.FC<SidebarClientProps> = ({ products, slug }) => {
   ]);
 
   const filtered = products
+    .sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured))
     .filter((product) => product.category?.toLowerCase() === slug)
     .filter(
       (product) =>
@@ -42,8 +42,8 @@ const SidebarClient: React.FC<SidebarClientProps> = ({ products, slug }) => {
         maxPrice={Math.max(...products.map((p) => p.price))}
       />
       <div className="flex flex-col items-center justify-center w-full">
-        <h1 className="text-2xl font-bold mb-6">
-          {slug.charAt(0).toUpperCase() + slug.slice(1)}
+        <h1 className="text-2xl font-bold mb-6 text-gray-500">
+          {slug.toUpperCase() + "s"}
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
           {filtered.map((product: IProduct) => (

@@ -27,12 +27,7 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
     <div className="flex flex-col pt-5 justify-center items-center">
       <div className="flex flex-row">
         <div className="flex flex-col border-r border-[#e5e5e5] pr-5 items-center">
-          <Image
-            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
-            alt="image"
-            width={500}
-            height={500}
-          />
+          <Image src={product.image} alt="image" width={500} height={500} />
           <p
             className={`flex ${
               product.stock === 0 ? "bg-red-500" : "bg-green-500"
@@ -131,12 +126,7 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
           <p></p>
         </div>
         <div className="flex flex-row">
-          <Image
-            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
-            alt="image"
-            width={400}
-            height={400}
-          />
+          <Image src={product.image} alt="image" width={400} height={400} />
         </div>
       </div>
     </div>

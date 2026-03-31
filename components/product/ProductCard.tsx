@@ -10,7 +10,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const [isFeatured, setIsFeatured] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = (product: IProduct, quantity: number) => {
@@ -19,7 +18,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div
       className={`flex flex-col  ${
-        isFeatured === true ? "border-2 border-n-1 " : ""
+        product.isFeatured === true ? "border-2 border-n-1 " : ""
       } p-2 bg-n-4  w-[200px] hover:-translate-y-2 hover:shadow-md hover:shadow-slate-300 transition-all duration-200`}
     >
       <Link href={`/products/${product.slug}`}>
@@ -33,7 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </p>
 
           <Image
-            src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
+            src={product.image}
             alt={product.name}
             width={300}
             height={300}

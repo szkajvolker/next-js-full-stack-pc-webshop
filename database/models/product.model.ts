@@ -28,6 +28,7 @@ const productSchema = new Schema<IProduct>(
     brand: { type: String, required: true, trim: true },
     image: { type: String, required: true },
     stock: { type: Number, default: 0, min: 0 },
+    isFeatured: { type: Boolean, default: false },
   },
   {
     timestamps: true,

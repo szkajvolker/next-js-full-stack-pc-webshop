@@ -7,27 +7,28 @@ const BrowseCard = () => {
   const router = useRouter();
 
   return (
-    <ul className="flex justify-center items-center px-10 pt-2">
-      {BROWSEITEMS.map(({ itemname, slug }) => (
-        <li key={itemname}>
+    <div className="flex flex-row overflow-y-auto">
+      {BROWSEITEMS.map(({ itemname, slug, image }) => (
+        <div key={itemname} className="">
           <button
             type="button"
             onClick={() => router.push(`/browse/${slug}`)}
-            className="flex flex-col items-center p-4 border border-gray-400 rounded transition hover:bg-gray-200"
+            className="flex flex-col justify-between bg-white items-center p-4 border border-gray-400 rounded transition hover:border-purple-700 w-[110px] h-[120px] cursor-pointer"
           >
             <Image
-              src="/assets/database/images/asus-rog-strix-b650e-e-gaming-wifi.png"
+              src={image}
               alt="image"
-              width={100}
-              height={100}
+              width={130}
+              height={130}
+              className="object-cover"
             />{" "}
             <p className="mt-2 font-semibold text-xs text-gray-400">
               {itemname}
             </p>
           </button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
