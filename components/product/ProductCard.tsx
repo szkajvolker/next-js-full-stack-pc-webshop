@@ -32,8 +32,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </p>
 
           <Image
-            src={product.image}
-            alt={product.name}
+            src={product.image || "/assets/images/placeholder.png"}
+            alt={product.name ? `${product.name} - Product Image` : "Product Image"}
             width={300}
             height={300}
             className="rounded-lg"
