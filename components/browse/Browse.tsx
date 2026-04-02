@@ -1,3 +1,7 @@
+/**
+ * Browse wrapper component
+ * Container for the category browse cards section
+ */
 import React from "react";
 import BrowseCard from "./BrowseCard";
 

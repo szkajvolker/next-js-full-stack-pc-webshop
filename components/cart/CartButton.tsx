@@ -1,3 +1,8 @@
+/**
+ * Shopping cart button component with item counter
+ * Displays cart icon with badge showing total number of items
+ * Opens cart drawer when clicked
+ */
 "use client";
 
 import React from "react";
@@ -11,7 +16,7 @@ export default function CartButton() {
     <button
       onClick={openCart}
       className="relative p-2 hover:bg-white/10 rounded-full transition-colors group cursor-pointer"
-      aria-label={`Kosár ${totalItems} termékkel`}
+      aria-label={`Cart with ${totalItems} items`}
     >
       <FiShoppingCart className="w-8 h-8 text-white group-hover:text-gray-200 transition-colors" />
 

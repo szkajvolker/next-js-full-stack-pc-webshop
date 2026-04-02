@@ -1,3 +1,8 @@
+/**
+ * Featured products section component
+ * Fetches and displays products marked as featured
+ * Includes loading states and error handling
+ */
 "use client";
 
 import React, { useEffect, useState } from "react";

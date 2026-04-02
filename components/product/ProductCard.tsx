@@ -1,3 +1,10 @@
+/**
+ * Product display card component
+ * Shows product information and allows adding to cart
+ * Features quantity selector and direct cart integration
+ * 
+ * @param product - Product data to display
+ */
 "use client";
 import { IProduct } from "@/types/product";
 import Image from "next/image";
@@ -13,10 +20,10 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addItem } = useCartStore();
-  //openCart
+  // TODO: Add cart opening functionality
 
   const addToCart = (product: IProduct, quantity: number) => {
-    // Konvertáljuk IProduct-ot CartItem formátumra
+    // Convert IProduct to CartItem format
     const cartItem = {
       id: product._id.toString(),
       name: product.name,
@@ -25,7 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       category: product.category,
     };
 
-    // Adjuk hozzá a kosárhoz a megfelelő mennyiségben egy hívással
+    // Add to cart with the specified quantity in one call
     addItem(cartItem, quantity);
   };
   return (

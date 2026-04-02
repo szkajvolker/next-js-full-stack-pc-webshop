@@ -1,3 +1,7 @@
+/**
+ * Main application header/navigation component
+ * Contains logo, navigation links, dark mode toggle, cart button, and login button
+ */
 import Image from "next/image";
 import Link from "next/link";
 import DarkModeToggle from "../ui/DarkModeToggle";

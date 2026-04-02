@@ -1,3 +1,14 @@
+/**
+ * Sidebar filter component
+ * Contains manufacturer and price filters for product filtering
+ * 
+ * @param selectedManufacturers - Currently selected manufacturer names
+ * @param setSelectedManufacturers - Function to update selected manufacturers
+ * @param price - Current price range [min, max]
+ * @param setPrice - Function to update price range
+ * @param minPrice - Minimum allowed price
+ * @param maxPrice - Maximum allowed price
+ */
 "use client";
 import React from "react";
 import ManufacturersFilter from "./sidebarcomponents/ManufacturersFilter";

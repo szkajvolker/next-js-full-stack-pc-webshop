@@ -1,3 +1,9 @@
+/**
+ * Product detail page client component
+ * Displays detailed product information with quantity selector and add to cart functionality
+ * 
+ * @param product - Product data to display
+ */
 "use client";
 
 import Image from "next/image";

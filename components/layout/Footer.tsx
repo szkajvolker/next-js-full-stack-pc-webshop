@@ -1,3 +1,7 @@
+/**
+ * Application footer component
+ * Displays logo, social media icons, and developer information
+ */
 import Image from "next/image";
 import footerIcons from "../../constants/data";
 

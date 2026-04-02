@@ -1,3 +1,8 @@
+/**
+ * Authentication Zustand store
+ * Manages user authentication state and drawer visibility
+ * Handles login, registration, and logout with mock API calls
+ */
 "use client";
 
 import { create } from "zustand";
@@ -23,7 +28,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
   login: async (email: string, password: string) => {
     set({ isLoading: true, error: null });
     try {
-      // Itt később a valódi API hívás lesz
+      // Real API call will be implemented later
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Mock user data
@@ -43,7 +48,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
       });
     } catch (error) {
       set({
-        error: "Sikertelen bejelentkezés",
+        error: "Login failed",
         isLoading: false,
       });
     }
@@ -52,7 +57,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
   register: async (name: string, email: string, password: string) => {
     set({ isLoading: true, error: null });
     try {
-      // Itt később a valódi API hívás lesz
+      // Real API call will be implemented later
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const mockUser: User = {
@@ -71,7 +76,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
       });
     } catch (error) {
       set({
-        error: "Sikertelen regisztráció",
+        error: "Registration failed",
         isLoading: false,
       });
     }
