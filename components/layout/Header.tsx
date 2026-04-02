@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
 import DarkModeToggle from "../ui/DarkModeToggle";
+import CartButton from "../cart/CartButton";
+import LoginButton from "../auth/LoginButton";
 
 const Header = () => {
   return (
@@ -43,16 +44,10 @@ const Header = () => {
       </nav>
       <div className="flex flex-row gap-5 p-5 h-full bg-[#5200a3] items-center">
         <div className="pr-2">
-          <IoCartOutline
-            color="white"
-            size={32}
-            className="hover:cursor-pointer hover:scale-110 transition-transform"
-          />
+          <CartButton />
         </div>
         <div>
-          <button className="text-white font-bold hover:cursor-pointer hover:scale-110 transition-transform">
-            LOGIN
-          </button>
+          <LoginButton />
         </div>
       </div>
     </header>

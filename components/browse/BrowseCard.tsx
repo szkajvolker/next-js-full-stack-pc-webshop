@@ -13,7 +13,7 @@ const BrowseCard = () => {
           <button
             type="button"
             onClick={() => router.push(`/browse/${slug}`)}
-            className="flex flex-col justify-between bg-white items-center p-4 border border-gray-400 rounded transition hover:border-purple-700 w-[110px] h-[120px] cursor-pointer"
+            className="flex flex-col justify-between bg-white items-center p-4 border border-gray-400 rounded transition hover:border-purple-700 w-27.5 h-30 cursor-pointer"
           >
             <Image
               src={image}

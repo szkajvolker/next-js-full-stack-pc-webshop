@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import ProductCard from "@/components/product/ProductCard";
+import EmptyCategory from "@/components/shared/EmptyCategory";
 import { IProduct } from "@/types/product";
 
 interface SidebarClientProps {
@@ -45,11 +46,16 @@ const SidebarClient: React.FC<SidebarClientProps> = ({ products, slug }) => {
         <h1 className="text-2xl font-bold mb-6 text-gray-500">
           {slug.toUpperCase() + "s"}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-          {filtered.map((product: IProduct) => (
-            <ProductCard key={String(product._id)} product={product} />
-          ))}
-        </div>
+        
+        {filtered.length === 0 ? (
+          <EmptyCategory categorySlug={slug} />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+            {filtered.map((product: IProduct) => (
+              <ProductCard key={String(product._id)} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

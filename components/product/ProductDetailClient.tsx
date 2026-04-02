@@ -52,7 +52,7 @@ const ProductDetailClient = ({ product }: ProductDetailClientProps) => {
                   <CiStar key={i} size={20} />
                 ))}
               </div>
-              <button className="bg-[#e5e5e5] p-2 rounded-full text-gray-500">
+              <button className="bg-[#e5e5e5] p-2 rounded-full text-gray-500 cursor-pointer">
                 ADD TO SAVED
               </button>
             </div>
