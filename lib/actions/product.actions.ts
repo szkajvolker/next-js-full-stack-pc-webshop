@@ -45,27 +45,43 @@ export async function getAllProducts(): Promise<IProduct[]> {
   try {
     await connectToDatabase();
     const products = await Product.find({}).sort({ createdAt: -1 });
+
+    if (!products) {
+      return [];
+    }
+
     return JSON.parse(JSON.stringify(products));
   } catch (error) {
     console.error("Error fetching products:", error);
-    throw error;
+    // Return empty array instead of throwing in production to prevent crashes
+    return [];
   }
 }
 
 export async function getProductBySlug(slug: string) {
   try {
+    if (!slug) {
+      return null;
+    }
+
     await connectToDatabase();
     const product = await Product.findOne({ slug });
+
+    if (!product) {
+      return null;
+    }
+
     return JSON.parse(JSON.stringify(product));
   } catch (error) {
     console.error("Error fetching product", error);
-    throw error;
+    // Return null instead of throwing to prevent crashes
+    return null;
   }
 }
 
 export async function updateProduct(
   id: string,
-  productData: Partial<IProduct>
+  productData: Partial<IProduct>,
 ) {
   try {
     if ("slug" in productData) {

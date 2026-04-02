@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useCartStore } from "@/lib/stores/cartStore";
 
 interface ProductCardProps {
   product: IProduct;
@@ -11,15 +12,27 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCartStore();
+  //openCart
 
   const addToCart = (product: IProduct, quantity: number) => {
-    console.log(`${product.name} added to cart ${quantity} `);
+    // Konvertáljuk IProduct-ot CartItem formátumra
+    const cartItem = {
+      id: product._id.toString(),
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+    };
+
+    // Adjuk hozzá a kosárhoz a megfelelő mennyiségben egy hívással
+    addItem(cartItem, quantity);
   };
   return (
     <div
       className={`flex flex-col  ${
         product.isFeatured === true ? "border-2 border-n-1 " : ""
-      } p-2 bg-n-4  w-[200px] hover:-translate-y-2 hover:shadow-md hover:shadow-slate-300 transition-all duration-200`}
+      } p-2 bg-n-4  w-50 hover:-translate-y-2 hover:shadow-md hover:shadow-slate-300 transition-all duration-200`}
     >
       <Link href={`/products/${product.slug}`}>
         <div className="flex justify-end">
