@@ -1,3 +1,8 @@
+/**
+ * Category browse cards component
+ * Displays clickable category cards for navigation
+ * Maps through BROWSEITEMS to create category links
+ */
 "use client";
 import { BROWSEITEMS } from "@/constants/data";
 import Image from "next/image";

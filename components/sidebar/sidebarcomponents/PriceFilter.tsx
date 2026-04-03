@@ -1,3 +1,11 @@
+/**
+ * Price range filter component with collapsible interface
+ * Allows users to filter products by price range using a Material-UI slider
+ * 
+ * @param min - Minimum price value
+ * @param max - Maximum price value  
+ * @param onChange - Callback function when price range changes
+ */
 "use client";
 import { Box, Slider } from "@mui/material";
 import React, { useState } from "react";

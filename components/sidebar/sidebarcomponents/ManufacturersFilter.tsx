@@ -1,3 +1,10 @@
+/**
+ * Manufacturer/Brand filter component with search and collapse functionality
+ * Displays a list of manufacturers that users can select to filter products
+ * 
+ * @param selected - Array of currently selected manufacturer names
+ * @param onChange - Callback function when selection changes
+ */
 import { MANUFACTURERS } from "@/constants/data";
 import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";

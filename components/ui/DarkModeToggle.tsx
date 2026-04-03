@@ -1,3 +1,8 @@
+/**
+ * Dark mode toggle button component
+ * Allows users to switch between light and dark themes
+ * Persists preference in localStorage
+ */
 "use client";
 
 import { useEffect } from "react";

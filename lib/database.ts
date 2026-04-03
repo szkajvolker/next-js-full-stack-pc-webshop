@@ -1,3 +1,8 @@
+/**
+ * MongoDB connection utility with caching
+ * Implements connection pooling to prevent multiple database connections
+ * Uses global caching to reuse connections across serverless function calls
+ */
 import mongoose from "mongoose";
 
 interface MongooseCache {

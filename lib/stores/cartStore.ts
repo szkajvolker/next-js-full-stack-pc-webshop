@@ -1,3 +1,8 @@
+/**
+ * Shopping cart Zustand store
+ * Manages cart state with persistence to localStorage
+ * Handles adding, removing, updating items and calculating totals
+ */
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { CartStore } from "@/types/cart";

@@ -1,3 +1,10 @@
+/**
+ * Client-side sidebar with product filtering and display
+ * Manages filter state and displays filtered products in a grid
+ * 
+ * @param products - Array of all products to filter
+ * @param slug - Category slug for filtering products
+ */
 "use client";
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";

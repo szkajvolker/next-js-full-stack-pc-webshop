@@ -1,3 +1,8 @@
+/**
+ * Login/User button component
+ * Shows login button when not authenticated, or user name when authenticated
+ * Opens login drawer on click
+ */
 "use client";
 
 import React from "react";

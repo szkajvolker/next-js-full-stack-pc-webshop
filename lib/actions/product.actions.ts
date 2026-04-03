@@ -1,3 +1,8 @@
+/**
+ * Server actions for product management
+ * Handles CRUD operations for products with MongoDB
+ * Includes data validation and error handling with graceful degradation
+ */
 "use server";
 
 import { generateSlug } from "../utils/slug";

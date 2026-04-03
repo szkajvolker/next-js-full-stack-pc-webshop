@@ -1,3 +1,7 @@
+/**
+ * Main homepage component
+ * Combines browse categories and featured products sections
+ */
 import Browse from "../browse/Browse";
 import Featured from "../featured/Featured";
 

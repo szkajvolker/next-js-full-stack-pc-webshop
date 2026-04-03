@@ -1,3 +1,10 @@
+/**
+ * Empty state component for categories with no products
+ * Displays when a category has no products or filters return empty results
+ * Includes navigation options and suggested categories
+ * 
+ * @param categorySlug - Optional category slug override (falls back to URL params)
+ */
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
@@ -5,7 +12,7 @@ import { BROWSEITEMS } from "@/constants/data";
 import { PackageOpen, ArrowLeft } from "lucide-react";
 
 interface EmptyCategoryProps {
-  categorySlug?: string; // Optional override dla category slug
+  categorySlug?: string; // Optional override for category slug
 }
 
 const EmptyCategory: React.FC<EmptyCategoryProps> = ({ categorySlug }) => {

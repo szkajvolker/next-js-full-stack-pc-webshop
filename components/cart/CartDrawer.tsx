@@ -1,3 +1,9 @@
+/**
+ * Shopping cart drawer component
+ * Side panel that displays cart items with add/remove functionality
+ * Includes total calculation and checkout button
+ * Uses GSAP for smooth slide-in/out animations
+ */
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -27,7 +33,7 @@ export default function CartDrawer() {
       return;
 
     if (isOpen) {
-      // Drawer megjelenítése animációval
+      // Show drawer with animation
       gsap.set(drawerRef.current, { display: "flex" });
       gsap.set(overlayRef.current, { opacity: 0 });
       gsap.set(contentRef.current, { x: "100%" });
@@ -48,7 +54,7 @@ export default function CartDrawer() {
         "-=0.1",
       );
     } else {
-      // Drawer eltüntetése animációval
+      // Hide drawer with animation
       const tl = gsap.timeline({
         onComplete: () => {
           if (drawerRef.current) {
@@ -131,10 +137,10 @@ export default function CartDrawer() {
                 </svg>
               </div>
               <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                A kosár üres
+                Cart is empty
               </h3>
               <p className="text-gray-500 dark:text-gray-400">
-                Adj hozzá termékeket a vásárlás elkezdéséhez.
+                Add products to start shopping.
               </p>
             </div>
           ) : (
@@ -213,7 +219,7 @@ export default function CartDrawer() {
                   onClick={clearCart}
                   className="w-full mt-4 px-4 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800 transition-colors cursor-pointer"
                 >
-                  Kosár ürítése
+                  Clear Cart
                 </button>
               )}
             </div>
@@ -226,7 +232,7 @@ export default function CartDrawer() {
             {/* Total */}
             <div className="flex justify-between items-center">
               <span className="text-lg font-medium text-gray-900 dark:text-white">
-                Összesen:
+                Total:
               </span>
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 {formatPrice(totalPrice)}
@@ -236,7 +242,7 @@ export default function CartDrawer() {
             {/* Proceed to Payment Button */}
             <button
               onClick={() => {
-                // Itt később implementálható a fizetési folyamat
+                // Payment process can be implemented here later
                 console.log("Proceed to payment:", items);
                 closeCart();
               }}

@@ -1,3 +1,9 @@
+/**
+ * Login/Register drawer component
+ * Animated side panel for user authentication
+ * Switches between login and registration modes
+ * Uses GSAP for smooth animations and form validation
+ */
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -49,20 +55,17 @@ const LoginDrawer: React.FC = () => {
     if (isOpen) {
       // Show drawer with animation
       gsap.set(drawerRef.current, { display: "flex" });
-      gsap.set(overlayRef.current, { opacity: 0.5 }); // Azonnal félig átlátszó
+      gsap.set(overlayRef.current, { opacity: 0.5 });
       gsap.set(contentRef.current, { x: "100%" });
 
       const tl = gsap.timeline();
 
-      // Már nem kell az overlay opacity animáció, azonnal látszik
-      tl.to(
-        contentRef.current,
-        {
-          x: "0%",
-          duration: 0.4,
-          ease: "power3.out",
-        }
-      );
+      // No need for overlay opacity animation, visible immediately
+      tl.to(contentRef.current, {
+        x: "0%",
+        duration: 0.4,
+        ease: "power3.out",
+      });
     } else {
       // Hide drawer with animation
       const tl = gsap.timeline({

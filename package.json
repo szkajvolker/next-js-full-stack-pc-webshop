@@ -1,12 +1,33 @@
 {
   "name": "next-js-full-stack-pc-webshop",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A modern, full-stack e-commerce platform for PC components built with Next.js, React, MongoDB, and Tailwind CSS",
   "private": true,
+  "author": {
+    "name": "István Szabó",
+    "email": "ist9595@windowslive.com",
+    "url": "https://github.com/szkajvolker"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "mongodb",
+    "ecommerce",
+    "webshop",
+    "tailwindcss",
+    "zustand",
+    "pc-components"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next",
+    "deploy": "npm run build && npm run start"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
